@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
+import {
   Leaf, Menu, X, ArrowRight, MapPin, Clock, Phone, Mail, Instagram, Sparkle, Star, ExternalLink
 } from "lucide-react";
 
@@ -16,29 +16,29 @@ export default function App() {
     {
       title: "Acne Medical Therapy",
       description: "Advanced clinical treatment designed to clear stubborn active inflammatory acne, eliminate redness, and balance natural sebum production to restore a healthy, glowing complexion.",
-      image: "/transformations/acne_before_after.jpg"
+      image: `${import.meta.env.BASE_URL}transformations/acne_before_after.jpg`
     },
     {
       title: "Hyperpigmentation & Melasma",
       description: "Custom enzymatic and antioxidant resurfacing therapy designed to fade deep dermal sunspots, pregnancy melasma, and irregular skin patches, resulting in an even, bright, and radiant tone.",
-      image: "/transformations/pigmentation_before_after.jpg"
+      image: `${import.meta.env.BASE_URL}transformations/pigmentation_before_after.jpg`
     },
     {
       title: "Plumping & Lip Contouring",
       description: "Precision dermal hydration to sculpt defined borders, correct shape asymmetry, and restore natural youthful volume, completely tailored to preserve your natural facial harmony.",
-      image: "/transformations/lips_before_after.jpg"
+      image: `${import.meta.env.BASE_URL}transformations/lips_before_after.jpg`
     },
     {
       title: "Pitted Acne Scar Resurfacing",
       description: "Fractional CO2 resurfacing partnered with advanced microneedling to stimulate deep collagen rebuilding, drastically flattening the depth of acne scars to reveal a polished skin texture.",
-      image: "/transformations/scars_before_after.jpg"
+      image: `${import.meta.env.BASE_URL}transformations/scars_before_after.jpg`
     }
   ];
 
   const doctorImages = [
-    "/doctor/charu 1.png",
-    "/doctor/charu 2.png",
-    "/doctor/charu 3.png"
+    `${import.meta.env.BASE_URL}doctor/charu 1.png`,
+    `${import.meta.env.BASE_URL}doctor/charu 2.png`,
+    `${import.meta.env.BASE_URL}doctor/charu 3.png`
   ];
 
   const googleReviews = [
@@ -117,42 +117,41 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FAF6F2] relative transparent-grid overflow-hidden selection:bg-brand-300 selection:text-brand-900">
-      
+
       {/* HEADER NAVBAR */}
-      <header 
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled 
-            ? "bg-[#FAF6F2]/90 backdrop-blur-md py-4 border-b border-brand-200/50 shadow-sm" 
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled
+            ? "bg-[#FAF6F2]/90 backdrop-blur-md py-4 border-b border-brand-200/50 shadow-sm"
             : "bg-transparent py-6"
-        }`}
+          }`}
         id="renewtheaestheticclinic-navigation-header"
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
-          
+
           {/* Logo */}
-          <div 
+          <div
             onClick={() => scrollToSection("hero-section")}
             className="flex items-center space-x-2.5 cursor-pointer group"
           >
             {/* Custom elegant horizontal winged goddess icon matching the reference exactly */}
             <div className="w-12 h-9 flex-shrink-0 text-[#352013] group-hover:scale-105 transition-transform duration-300 ease-out">
-              <svg 
-                viewBox="0 0 160 120" 
+              <svg
+                viewBox="0 0 160 120"
                 className="w-full h-full"
               >
                 {/* Hands holding the sun/sphere */}
                 <circle cx="80" cy="10" r="4" fill="currentColor" />
-                
+
                 {/* Sleek silhouette body */}
-                <path 
-                  d="M80,22 C78,25 74,32 72,38 C70,44 74,46 75,49 C77,51 77,54 76,60 C75,66 72,72 71,79 C70,86 71,92 73,102 L80,114 L87,102 C89,92 90,86 89,79 C88,72 85,66 84,60 C83,54 83,51 85,49 C86,46 90,44 88,38 C86,32 82,25 80,22 Z" 
-                  fill="currentColor" 
+                <path
+                  d="M80,22 C78,25 74,32 72,38 C70,44 74,46 75,49 C77,51 77,54 76,60 C75,66 72,72 71,79 C70,86 71,92 73,102 L80,114 L87,102 C89,92 90,86 89,79 C88,72 85,66 84,60 C83,54 83,51 85,49 C86,46 90,44 88,38 C86,32 82,25 80,22 Z"
+                  fill="currentColor"
                 />
-                
+
                 {/* Arms raised high, curved and meeting at the top sphere */}
                 <path d="M72,38 C67,31 71,18 78,14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
                 <path d="M88,38 C93,31 89,18 82,14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-                
+
                 {/* Head (Ocular disk/oval centered) */}
                 <ellipse cx="80" cy="29" rx="3.5" ry="5" fill="currentColor" />
 
@@ -177,7 +176,7 @@ export default function App() {
                 <path d="M85,68 C102,70 115,74 119,76 C116,77 110,78 94,74" stroke="currentColor" strokeWidth="1" strokeLinecap="round" fill="none" opacity="0.4" />
               </svg>
             </div>
-            
+
             <span style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", serif' }} className="text-lg sm:text-2xl font-semibold tracking-wide text-[#352013]">
               Renew the Aesthetic Clinic J&K
             </span>
@@ -185,44 +184,44 @@ export default function App() {
 
           {/* Desktop Links */}
           <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-brand-900/80">
-            <button 
+            <button
               onClick={() => scrollToSection("hero-section")}
               className="hover:text-[#352013] transition-colors cursor-pointer relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-900 hover:after:w-full after:transition-all after:duration-300"
             >
               Home
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("doctor-section")}
               className="hover:text-[#352013] transition-colors cursor-pointer relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-900 hover:after:w-full after:transition-all after:duration-300"
             >
               About Our Founder
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("transformations-section")}
               className="hover:text-[#352013] transition-colors cursor-pointer relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-900 hover:after:w-full after:transition-all after:duration-300"
             >
               Transformations
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("reviews-section")}
               className="hover:text-[#352013] transition-colors cursor-pointer relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-900 hover:after:w-full after:transition-all after:duration-300"
             >
               Reviews
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("footer-section")}
               className="hover:text-[#352013] transition-colors cursor-pointer relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-900 hover:after:w-full after:transition-all after:duration-300"
             >
               Inquiries
             </button>
-            <a 
+            <a
               href="tel:8899962666"
               className="flex items-center gap-1.5 hover:text-[#352013] transition-colors font-mono font-medium text-brand-900/90 text-xs px-3 py-1.5 rounded-full bg-brand-100 border border-brand-200"
             >
               <Phone className="w-3.5 h-3.5 text-brand-700" />
               <span>8899962666</span>
             </a>
-            <a 
+            <a
               href="https://www.instagram.com/renewtheaestheticclinic/"
               target="_blank"
               rel="noopener noreferrer"
@@ -346,12 +345,12 @@ export default function App() {
 
       {/* HERO SECTION */}
       <div className="relative overflow-hidden w-full min-h-screen bg-[#FAF6F2]">
-        
+
         {/* Full-width Background Image styled specifically to blend smoothly */}
         <div className="absolute inset-0 z-0 pointer-events-none select-none">
-          <img 
-            src="/landing/renew_landing_bg.png" 
-            alt="Luminous skin care aesthetic with delicate shadows" 
+          <img
+            src={`${import.meta.env.BASE_URL}landing/renew_landing_bg.png`}
+            alt="Luminous skin care aesthetic with delicate shadows"
             className="w-full h-full object-cover object-[center_right] md:object-right opacity-35 md:opacity-45"
             referrerPolicy="no-referrer"
           />
@@ -362,7 +361,7 @@ export default function App() {
         </div>
 
         <main id="hero-section" className="relative z-10 min-h-screen pt-40 md:pt-48 pb-20 px-6 sm:px-8 max-w-7xl mx-auto flex flex-col justify-center">
-          
+
           {/* Subtle, abstract luxurious background elements on left to frame the layout asymmetry */}
           <div className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 w-full max-w-xl aspect-square pointer-events-none opacity-20 hidden md:block">
             {/* A pristine botanical leaf wireframe sketch in brown matching structural layouts */}
@@ -376,7 +375,7 @@ export default function App() {
               <path strokeWidth="0.35" strokeDasharray="1 1" d="M60,45 Q70,48 80,42" />
               <path strokeWidth="0.35" strokeDasharray="1 1" d="M50,30 Q60,33 70,27" />
               <path strokeWidth="0.35" strokeDasharray="1 1" d="M40,55 Q50,58 60,52" />
-              <circle cx="85" cy="15" r="1.5" fill="currentColor" opacity="0.6"/>
+              <circle cx="85" cy="15" r="1.5" fill="currentColor" opacity="0.6" />
             </svg>
           </div>
 
@@ -390,10 +389,10 @@ export default function App() {
 
           {/* The Core 12-Column Responsive Grid Layout */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center h-full">
-            
+
             {/* Col 1-5 Left: Beautiful, expansive whitespace matching high-end design layouts */}
             <div className="hidden md:block md:col-span-1" />
-            
+
             {/* Col 2-5 Left Subtitle features (faded, premium, optional secondary layout block) */}
             <div className="hidden md:flex md:col-span-4 flex-col justify-center h-full pr-12 space-y-8">
               <motion.div
@@ -424,7 +423,7 @@ export default function App() {
 
             {/* Col 6-12 Right Side: High-Fashion, Typographic Hero statements */}
             <div className="md:col-span-7 flex flex-col justify-center z-10">
-              
+
               {/* Visual Header Indicator */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
@@ -455,7 +454,7 @@ export default function App() {
               {/* SUBTITLE PARAGRAPH */}
               {/* Sits right-aligned within columns 8-12 area, here offset beautifully to the right */}
               <div className="mt-8 md:mt-12 md:pl-[35%] flex flex-col items-start md:items-start space-y-8">
-                
+
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -482,11 +481,11 @@ export default function App() {
                   >
                     {/* Subtle inner shiny glow element */}
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                    
+
                     Book Consultation
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
                   </a>
-                  
+
                   {/* Golden-brown backup backglow halo */}
                   <div className="absolute -inset-1 rounded-full bg-brand-500/10 blur-md -z-10 group-hover:opacity-100 transition-opacity" />
                 </motion.div>
@@ -501,21 +500,21 @@ export default function App() {
       <section id="doctor-section" className="py-24 px-6 md:px-8 bg-white border-t border-brand-200 relative z-10 transition-colors duration-300">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             {/* Left Column: Biography & Meet Dr. Gupta */}
             <div className="lg:col-span-7 space-y-8">
               <div className="space-y-4">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#7A3F1F] font-sans block">
                   Clinic Founder & Owner
                 </span>
-                
-                <h2 
-                  style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif' }} 
+
+                <h2
+                  style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif' }}
                   className="text-4xl sm:text-5xl font-semibold tracking-tight text-[#352013] leading-tight"
                 >
                   Hi, I'm Dr. Charu Gupta.
                 </h2>
-                
+
                 {/* Accent mini divider wire */}
                 <div className="w-12 h-[1.5px] bg-[#7A3F1F]" />
               </div>
@@ -557,7 +556,7 @@ export default function App() {
             {/* Right Column: Fading Photo Carousel */}
             <div className="lg:col-span-5 flex flex-col items-center">
               <div className="relative w-full max-w-[400px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-brand-200 bg-brand-100 group">
-                
+
                 {/* Elegant gold corner accents */}
                 <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-brand-300 z-20 pointer-events-none opacity-80" />
                 <div className="absolute top-4 right-4 w-6 h-6 border-t border-r border-brand-300 z-20 pointer-events-none opacity-80" />
@@ -614,9 +613,8 @@ export default function App() {
                     type="button"
                     aria-label={`Go to slide ${idx + 1}`}
                     onClick={() => setCurrentImageIndex(idx)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      idx === currentImageIndex ? "w-6 bg-[#7A3F1F]" : "w-2 bg-brand-300 hover:bg-brand-400"
-                    }`}
+                    className={`h-2 rounded-full transition-all duration-300 ${idx === currentImageIndex ? "w-6 bg-[#7A3F1F]" : "w-2 bg-brand-300 hover:bg-brand-400"
+                      }`}
                   />
                 ))}
               </div>
@@ -629,14 +627,14 @@ export default function App() {
       {/* BEFORE AND AFTER TRANSFORMATIONS SECTION */}
       <section id="transformations-section" className="py-24 px-6 md:px-8 bg-[#FAF6F2] relative z-10 transition-all duration-300">
         <div className="max-w-7xl mx-auto">
-          
+
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#7A3F1F] font-sans block">
               Clinical Transformations
             </span>
-            <h2 
-              style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif' }} 
+            <h2
+              style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif' }}
               className="text-4xl sm:text-5xl font-semibold tracking-tight text-[#352013] leading-tight"
             >
               Before & After Gallery
@@ -654,11 +652,10 @@ export default function App() {
                 key={idx}
                 type="button"
                 onClick={() => setActiveTransformation(idx)}
-                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm border ${
-                  idx === activeTransformation
+                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm border ${idx === activeTransformation
                     ? "bg-gradient-to-r from-[#7A3F1F] to-[#4F250B] text-white border-transparent"
                     : "bg-white text-[#5A453A] border-brand-200 hover:bg-brand-50"
-                }`}
+                  }`}
               >
                 {item.title}
               </button>
@@ -667,7 +664,7 @@ export default function App() {
 
           {/* Main Comparison Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left side: Premium Browser Mockup with the Before/After Visual */}
             <div className="lg:col-span-6 flex justify-center w-full">
               <AnimatePresence mode="wait">
@@ -679,7 +676,7 @@ export default function App() {
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   className="w-full max-w-[520px] bg-white rounded-3xl overflow-hidden shadow-2xl border border-brand-200 relative p-4 pb-6"
                 >
-                  
+
                   {/* Safari/Browser header dots styled beautifully mapping attached pictures */}
                   <div className="flex items-center space-x-2 mb-4 px-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-pink-200 border border-pink-300" />
@@ -692,8 +689,8 @@ export default function App() {
 
                   {/* Main Picture Frame */}
                   <div className="relative aspect-square w-full rounded-2xl overflow-hidden shadow-inner border border-brand-100 group bg-brand-50">
-                    <img 
-                      src={transformations[activeTransformation].image} 
+                    <img
+                      src={transformations[activeTransformation].image}
                       alt={`${transformations[activeTransformation].title} Before and After results`}
                       className="w-full h-full object-cover select-none"
                       referrerPolicy="no-referrer"
@@ -712,7 +709,7 @@ export default function App() {
 
                   {/* Beautiful footer card mimicking the user's uploaded pictures perfectly */}
                   <div className="text-center mt-6 pt-4 border-t border-brand-100">
-                    <h3 
+                    <h3
                       style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif' }}
                       className="text-xl font-bold tracking-tight text-[#352013]"
                     >
@@ -742,7 +739,7 @@ export default function App() {
                     <span className="text-[10px] uppercase font-mono tracking-[0.2em] font-semibold text-[#7A3F1F] block">
                       Clinical Focus Review
                     </span>
-                    <h3 
+                    <h3
                       style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif' }}
                       className="text-3xl md:text-4xl font-semibold text-[#352013] tracking-tight"
                     >
@@ -779,15 +776,15 @@ export default function App() {
       {/* PATENT AND REVIEWS TESTIMONIALS SECTION */}
       <section id="reviews-section" className="py-24 px-6 md:px-8 bg-white border-t border-brand-100 relative z-10 transition-colors duration-300">
         <div className="max-w-7xl mx-auto">
-          
+
           {/* Header & Google Stats Summary block */}
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-8">
             <div className="max-w-2xl text-left space-y-4">
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#7A3F1F] font-sans block">
                 Google Verified Testimonials
               </span>
-              <h2 
-                style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif' }} 
+              <h2
+                style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif' }}
                 className="text-4xl sm:text-5xl font-semibold tracking-tight text-[#352013] leading-tight"
               >
                 What Our Patients Experience
@@ -891,7 +888,7 @@ export default function App() {
       {/* RICH LUXURY FOOTER */}
       <footer id="footer-section" className="bg-brand-900 text-brand-100 pt-20 pb-12 border-t border-brand-950 relative z-10 font-sans">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-brand-800">
-          
+
           {/* Logo and Pitch */}
           <div className="md:col-span-4 space-y-4">
             <div className="flex items-center space-x-2.5">
@@ -899,17 +896,17 @@ export default function App() {
                 <svg viewBox="0 0 160 120" className="w-full h-full">
                   {/* Hands holding the sun/sphere */}
                   <circle cx="80" cy="10" r="4" fill="currentColor" />
-                  
+
                   {/* Sleek silhouette body */}
-                  <path 
-                    d="M80,22 C78,25 74,32 72,38 C70,44 74,46 75,49 C77,51 77,54 76,60 C75,66 72,72 71,79 C70,86 71,92 73,102 L80,114 L87,102 C89,92 90,86 89,79 C88,72 85,66 84,60 C83,54 83,51 85,49 C86,46 90,44 88,38 C86,32 82,25 80,22 Z" 
-                    fill="currentColor" 
+                  <path
+                    d="M80,22 C78,25 74,32 72,38 C70,44 74,46 75,49 C77,51 77,54 76,60 C75,66 72,72 71,79 C70,86 71,92 73,102 L80,114 L87,102 C89,92 90,86 89,79 C88,72 85,66 84,60 C83,54 83,51 85,49 C86,46 90,44 88,38 C86,32 82,25 80,22 Z"
+                    fill="currentColor"
                   />
-                  
+
                   {/* Arms raised high, curved and meeting at the top sphere */}
                   <path d="M72,38 C67,31 71,18 78,14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
                   <path d="M88,38 C93,31 89,18 82,14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-                  
+
                   {/* Head (Ocular disk/oval centered) */}
                   <ellipse cx="80" cy="29" rx="3.5" ry="5" fill="currentColor" />
 
@@ -936,24 +933,24 @@ export default function App() {
               A premier aesthetic clinic dedicated to advanced skin rejuvenation, state-of-the-art dermatological treatments, and custom patient-centric care.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a 
-                href="https://www.instagram.com/renewtheaestheticclinic/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.instagram.com/renewtheaestheticclinic/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2.5 border border-brand-800 rounded-full hover:bg-white/10 text-brand-200 hover:text-white transition-all hover:scale-105"
                 title="Follow us on Instagram"
               >
                 <Instagram className="w-4 h-4" />
               </a>
-              <a 
-                href="https://wa.me/+918899962666" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://wa.me/+918899962666"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2.5 border border-brand-800 rounded-full hover:bg-white/10 text-brand-200 hover:text-white transition-all hover:scale-105"
                 title="Chat with us on WhatsApp"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.002 5.219 5.221 0 11.64 0 14.755 0 17.67 1.214 19.87 3.418 22.072 5.62 23.284 8.542 23.28 11.66c-.006 6.425-5.224 11.64-11.64 11.64-2.01 0-3.993-.521-5.74-1.517L0 24zm6.154-3.418l.363.216c1.51.896 3.234 1.37 5.006 1.371 5.378 0 9.754-4.373 9.759-9.753.003-2.607-1.012-5.06-2.863-6.914C16.57 3.551 14.116 2.535 11.51 2.535c-5.385 0-9.768 4.383-9.773 9.764-.002 1.83.483 3.619 1.401 5.184l.24.41L2.39 21.135l3.821-1.011zm11.398-6.19c-.312-.156-1.847-.91-2.128-1.011-.282-.102-.487-.156-.692.156-.205.312-.795 1.011-.974 1.214-.179.201-.358.226-.67.07-1.12-.416-1.921-.715-2.684-2.02-.19-.325-.19-.193.07-.37.234-.156.312-.226.468-.312s.156-.201.07-.312c-.087-.11-.692-1.67-.948-2.287-.25-.6-.505-.515-.69-.523-.179-.008-.385-.008-.59-.008s-.538.077-.82.385c-.282.312-1.077 1.05-1.077 2.562s1.103 2.973 1.256 3.178c.154.205 2.171 3.313 5.258 4.646.734.317 1.309.507 1.758.649.737.234 1.409.201 1.94.122.593-.088 1.847-.756 2.109-1.449.262-.693.262-1.289.184-1.414-.078-.125-.282-.201-.593-.357z"/>
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.002 5.219 5.221 0 11.64 0 14.755 0 17.67 1.214 19.87 3.418 22.072 5.62 23.284 8.542 23.28 11.66c-.006 6.425-5.224 11.64-11.64 11.64-2.01 0-3.993-.521-5.74-1.517L0 24zm6.154-3.418l.363.216c1.51.896 3.234 1.37 5.006 1.371 5.378 0 9.754-4.373 9.759-9.753.003-2.607-1.012-5.06-2.863-6.914C16.57 3.551 14.116 2.535 11.51 2.535c-5.385 0-9.768 4.383-9.773 9.764-.002 1.83.483 3.619 1.401 5.184l.24.41L2.39 21.135l3.821-1.011zm11.398-6.19c-.312-.156-1.847-.91-2.128-1.011-.282-.102-.487-.156-.692.156-.205.312-.795 1.011-.974 1.214-.179.201-.358.226-.67.07-1.12-.416-1.921-.715-2.684-2.02-.19-.325-.19-.193.07-.37.234-.156.312-.226.468-.312s.156-.201.07-.312c-.087-.11-.692-1.67-.948-2.287-.25-.6-.505-.515-.69-.523-.179-.008-.385-.008-.59-.008s-.538.077-.82.385c-.282.312-1.077 1.05-1.077 2.562s1.103 2.973 1.256 3.178c.154.205 2.171 3.313 5.258 4.646.734.317 1.309.507 1.758.649.737.234 1.409.201 1.94.122.593-.088 1.847-.756 2.109-1.449.262-.693.262-1.289.184-1.414-.078-.125-.282-.201-.593-.357z" />
                 </svg>
               </a>
             </div>
