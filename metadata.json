@@ -1,0 +1,6 @@
+{
+  "name": "Renew the Aesthetic Clinic",
+  "description": "An elegant, premium skin care landing page featuring natural glow treatments and expert consultation booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
