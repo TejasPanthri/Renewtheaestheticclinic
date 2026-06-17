@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Leaf, Menu, X, ArrowRight, MapPin, Clock, Phone, Mail, Instagram, Sparkle, Star, ExternalLink
+  Leaf, Menu, X, ArrowRight, MapPin, Clock, Phone, Mail, Instagram, Sparkle, Star, ExternalLink, Sparkles, Zap, Droplets, Layers, Search
 } from "lucide-react";
 
 // Import modules
@@ -16,29 +16,29 @@ export default function App() {
     {
       title: "Acne Medical Therapy",
       description: "Advanced clinical treatment designed to clear stubborn active inflammatory acne, eliminate redness, and balance natural sebum production to restore a healthy, glowing complexion.",
-      image: `${import.meta.env.BASE_URL}transformations/acne_before_after.jpg`
+      image: import.meta.env.BASE_URL + "transformations/acne_before_after.jpg"
     },
     {
       title: "Hyperpigmentation & Melasma",
       description: "Custom enzymatic and antioxidant resurfacing therapy designed to fade deep dermal sunspots, pregnancy melasma, and irregular skin patches, resulting in an even, bright, and radiant tone.",
-      image: `${import.meta.env.BASE_URL}transformations/pigmentation_before_after.jpg`
+      image: import.meta.env.BASE_URL + "transformations/pigmentation_before_after.jpg"
     },
     {
       title: "Plumping & Lip Contouring",
       description: "Precision dermal hydration to sculpt defined borders, correct shape asymmetry, and restore natural youthful volume, completely tailored to preserve your natural facial harmony.",
-      image: `${import.meta.env.BASE_URL}transformations/lips_before_after.jpg`
+      image: import.meta.env.BASE_URL + "transformations/lips_before_after.jpg"
     },
     {
       title: "Pitted Acne Scar Resurfacing",
       description: "Fractional CO2 resurfacing partnered with advanced microneedling to stimulate deep collagen rebuilding, drastically flattening the depth of acne scars to reveal a polished skin texture.",
-      image: `${import.meta.env.BASE_URL}transformations/scars_before_after.jpg`
+      image: import.meta.env.BASE_URL + "transformations/scars_before_after.jpg"
     }
   ];
 
   const doctorImages = [
-    `${import.meta.env.BASE_URL}doctor/charu 1.png`,
-    `${import.meta.env.BASE_URL}doctor/charu 2.png`,
-    `${import.meta.env.BASE_URL}doctor/charu 3.png`
+    import.meta.env.BASE_URL + "doctor/dr_charu_blazer.png",
+    import.meta.env.BASE_URL + "doctor/dr_charu_scrubs.png",
+    import.meta.env.BASE_URL + "doctor/dr_charu_goggles.png"
   ];
 
   const googleReviews = [
@@ -86,6 +86,104 @@ export default function App() {
     }
   ];
 
+  const [treatmentSearchQuery, setTreatmentSearchQuery] = useState("");
+
+  const treatmentCategories = [
+    {
+      categoryName: "Laser & Advanced Injectables",
+      icon: "Zap",
+      description: "State-of-the-art energy-based systems and precise clinical injectables tailored by Dr. Charu Gupta.",
+      items: [
+        {
+          name: "Carbon Laser Peel",
+          description: "Peels away dead cells and impurities using activated carbon to shrink active pores, balance sebum, and induce instant clarity."
+        },
+        {
+          name: "Botox Cosmetics",
+          description: "Highly targeted micro-injections to relax facial muscles, safely eliminating crow’s feet, forehead lines, and active wrinkles."
+        },
+        {
+          name: "Q Switch Nd:YAG Laser",
+          description: "Clinical gold standard laser targeting stubborn pigment, freckles, melasma plates, and inducing deep dermal cell renewal."
+        },
+        {
+          name: "Artful Lip Fillers",
+          description: "Bespoke lip contouring and hydration utilizing high-purity hyaluronic acid to restore volume, correct asymmetry, and define borders."
+        },
+        {
+          name: "Liquid Rhinoplasty",
+          description: "Non-surgical, high-precision nasal profile shaping with dermal fillers, offering instantaneous lift and aesthetic harmony."
+        },
+        {
+          name: "Laser Tattoo Removal",
+          description: "Advanced multi-wavelength laser technology that breaks down deep ink pigments safely without damaging surrounding skin tissue."
+        }
+      ]
+    },
+    {
+      categoryName: "Clinical Dermal & Body Care",
+      icon: "Sparkles",
+      description: "Advanced medical skin-rejuvenating protocols engineered to optimize cellular health, healing, and barrier function.",
+      items: [
+        {
+          name: "Custom Medical Facials",
+          description: "Clinical-strength enzymatic exfoliation combined with deep skin hydration, custom-blended for your unique dermal bio-type."
+        },
+        {
+          name: "Intravenous (IV) Drip Therapy",
+          description: "Direct medical-grade infusion of essential vitamins, antioxidants, and trace elements for body rejuvenation."
+        },
+        {
+          name: "Eye Revive Treatment",
+          description: "Targeted therapy utilizing clinical stimulants and peptide infusions to conquer under-eye dark circles, hollows, and puffiness."
+        },
+        {
+          name: "Comedone Extraction",
+          description: "Pristine clinical extraction of deep whiteheads and stubborn blackheads under aseptic conditions to clear active congestion."
+        },
+        {
+          name: "Body Polishing & Exfoliation",
+          description: "Luxurious clinical skin-resurfacing and nourishing oils that polish away rough textures, restoring a silky-smooth body glow."
+        },
+        {
+          name: "LED Light Therapy",
+          description: "NASA-grade photodynamic waves targeting repair pathways, calming active inflammation, and stimulating rapid collagen synthesis."
+        },
+        {
+          name: "Wart & Skin Tag Removal",
+          description: "Quick, hygienic radiofrequency or medical electrocautery to permanently clear skin growths with minimal healing marks."
+        }
+      ]
+    },
+    {
+      categoryName: "Advanced Hair & Fine Aesthetics",
+      icon: "Leaf",
+      description: "Highly specialized hair growth restoration programs and sophisticated semi-permanent makeup artistry.",
+      items: [
+        {
+          name: "QR678 Hair Therapy",
+          description: "Patented advanced growth factor formula injected locally to reverse alopecia, stimulate dormant follicles, and thicken hair."
+        },
+        {
+          name: "Hair PRP Therapy",
+          description: "Autologous platelet-rich plasma micro-injections packed with bioactive factors to stimulate natural hair density and volume."
+        },
+        {
+          name: "Lip Pigmentation Correction",
+          description: "Enzymatic and laser-based correction designed to lighten hyperpigmented or dark lips, revealing a healthy, natural pink color."
+        },
+        {
+          name: "Precision Microblading",
+          description: "Exclusive fine hair-stroke semi-permanent eyebrow styling matching natural hair flow, thickness, and optimal facial framing."
+        },
+        {
+          name: "Eyelash Keratin Lift",
+          description: "Deeply nutritive keratin boost that curls, lifts, and defines sparse eyelashes for an authentic, low-maintenance open-eyed beauty."
+        }
+      ]
+    }
+  ];
+
   // Auto-fading carousel effect for doctor images
   useEffect(() => {
     const timer = setInterval(() => {
@@ -121,8 +219,8 @@ export default function App() {
       {/* HEADER NAVBAR */}
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled
-            ? "bg-[#FAF6F2]/90 backdrop-blur-md py-4 border-b border-brand-200/50 shadow-sm"
-            : "bg-transparent py-6"
+          ? "bg-[#FAF6F2]/90 backdrop-blur-md py-4 border-b border-brand-200/50 shadow-sm"
+          : "bg-transparent py-6"
           }`}
         id="renewtheaestheticclinic-navigation-header"
       >
@@ -195,6 +293,12 @@ export default function App() {
               className="hover:text-[#352013] transition-colors cursor-pointer relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-900 hover:after:w-full after:transition-all after:duration-300"
             >
               About Our Founder
+            </button>
+            <button
+              onClick={() => scrollToSection("treatments-section")}
+              className="hover:text-[#352013] transition-colors cursor-pointer relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-brand-900 hover:after:w-full after:transition-all after:duration-300"
+            >
+              Treatments
             </button>
             <button
               onClick={() => scrollToSection("transformations-section")}
@@ -287,6 +391,15 @@ export default function App() {
               <button
                 onClick={() => {
                   setIsMobileMenuOpen(false);
+                  scrollToSection("treatments-section");
+                }}
+                className="text-left font-serif text-xl font-medium py-2.5 text-brand-900 border-b border-brand-100"
+              >
+                Treatments
+              </button>
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
                   scrollToSection("transformations-section");
                 }}
                 className="text-left font-serif text-xl font-medium py-2.5 text-brand-900 border-b border-brand-100"
@@ -349,7 +462,7 @@ export default function App() {
         {/* Full-width Background Image styled specifically to blend smoothly */}
         <div className="absolute inset-0 z-0 pointer-events-none select-none">
           <img
-            src={`${import.meta.env.BASE_URL}landing/renew_landing_bg.png`}
+            src={import.meta.env.BASE_URL + "landing/renew_landing_bg.png"}
             alt="Luminous skin care aesthetic with delicate shadows"
             className="w-full h-full object-cover object-[center_right] md:object-right opacity-35 md:opacity-45"
             referrerPolicy="no-referrer"
@@ -624,8 +737,161 @@ export default function App() {
         </div>
       </section>
 
+      {/* CLINICAL TREATMENTS & SERVICES CATALOGUE */}
+      <section id="treatments-section" className="py-24 px-6 md:px-8 bg-[#FAF6F2] border-t border-brand-100 relative z-10 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto">
+
+          {/* Main header block */}
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#7A3F1F] font-sans block animate-fade-in">
+              Comprehensive Service Range
+            </span>
+            <h2
+              style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif' }}
+              className="text-4xl sm:text-5xl font-semibold tracking-tight text-[#352013] leading-tight"
+            >
+              Our Clinical Treatments
+            </h2>
+            <div className="w-12 h-[1.5px] bg-[#7A3F1F] mx-auto" />
+            <p className="text-[#5A453A] text-sm md:text-base leading-relaxed font-sans font-light max-w-2xl mx-auto">
+              Explore our pristine selection of advanced non-invasive procedures, physician-formulated therapies, and laser treatment modalities curated specifically for natural face, skin, and hair renewal.
+            </p>
+
+            {/* Smart Luxury Search input bar */}
+            <div className="pt-6 max-w-md mx-auto">
+              <div className="relative flex items-center">
+                <Search className="w-4 h-4 text-[#7A3F1F]/60 absolute left-4 pointer-events-none" />
+                <input
+                  type="text"
+                  placeholder="Search treatments (e.g. Laser, Hair, Lip)..."
+                  value={treatmentSearchQuery}
+                  onChange={(e) => setTreatmentSearchQuery(e.target.value)}
+                  className="w-full text-xs font-sans pl-11 pr-10 py-3.5 bg-white/90 focus:bg-white text-brand-950 placeholder-brand-500/60 border border-brand-200/60 rounded-full shadow-sm outline-none focus:border-[#7A3F1F] focus:ring-1 focus:ring-[#7A3F1F] transition-all duration-300"
+                />
+                {treatmentSearchQuery && (
+                  <button
+                    onClick={() => setTreatmentSearchQuery("")}
+                    className="absolute right-4 text-xs text-brand-500 hover:text-[#7A3F1F] font-sans font-medium transition-colors"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+
+              {/* Query Indicator stats */}
+              <div className="mt-2 text-[10px] text-[#7A3F1F]/75 uppercase tracking-wider font-medium flex justify-center items-center gap-1.5 min-h-[16px]">
+                {treatmentSearchQuery.trim() ? (
+                  <span>
+                    Found {
+                      treatmentCategories.reduce((sum, cat) =>
+                        sum + cat.items.filter(item =>
+                          item.name.toLowerCase().includes(treatmentSearchQuery.toLowerCase()) ||
+                          item.description.toLowerCase().includes(treatmentSearchQuery.toLowerCase())
+                        ).length, 0
+                      )
+                    } clinical matches
+                  </span>
+                ) : (
+                  <span>Showing all 18 clinical services</span>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Three-Column bento-inspired Treatments layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {treatmentCategories.map((cat, catIdx) => {
+              // Client-side filtration
+              const query = treatmentSearchQuery.toLowerCase();
+              const matchedItems = cat.items.filter(item =>
+                item.name.toLowerCase().includes(query) ||
+                item.description.toLowerCase().includes(query)
+              );
+
+              if (matchedItems.length === 0) return null;
+
+              return (
+                <motion.div
+                  key={catIdx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, delay: catIdx * 0.1 }}
+                  className="bg-white/95 border border-brand-100 rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300"
+                >
+                  <div className="space-y-6">
+                    {/* Category Title with matching custom icon */}
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-brand-100/60 text-[#7A3F1F] rounded-2xl flex-shrink-0 shadow-sm">
+                        {cat.icon === "Zap" && <Zap className="w-5 h-5" />}
+                        {cat.icon === "Sparkles" && <Sparkles className="w-5 h-5" />}
+                        {cat.icon === "Leaf" && <Leaf className="w-5 h-5" />}
+                      </div>
+                      <div className="space-y-1">
+                        <h3
+                          style={{ fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif' }}
+                          className="text-2xl font-semibold text-[#352013] tracking-tight leading-tight"
+                        >
+                          {cat.categoryName}
+                        </h3>
+                        <p className="text-[11px] text-[#7A3F1F]/90 font-sans font-light leading-relaxed">
+                          {cat.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="h-[1px] bg-brand-100" />
+
+                    {/* Category treatment items list array */}
+                    <div className="space-y-5">
+                      {matchedItems.map((item, itemIdx) => (
+                        <div key={itemIdx} className="space-y-1 group">
+                          <h4 className="text-sm font-semibold text-[#352013] font-sans flex items-center gap-2 group-hover:text-[#7A3F1F] transition-colors">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#7A3F1F] opacity-60 group-hover:opacity-100 transition-opacity" />
+                            {item.name}
+                          </h4>
+                          <p className="text-xs text-[#5A453A] font-light font-sans pl-3.5 leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* WhatsApp scheduling card CTA link */}
+                  <div className="mt-8 pt-6 border-t border-brand-500/10">
+                    <a
+                      href={`https://wa.me/+918899962666?text=Hi%20Dr.%20Gupta%2C%20I%20am%20inquiring%20about%20the%20treatments%20offered%20under%20the%20${encodeURIComponent(cat.categoryName)}%20suite.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-between px-5 py-3 rounded-2xl bg-[#FAF6F2] hover:bg-[#7A3F1F] hover:text-white border border-brand-100 text-brand-950 transition-all duration-300 text-xs font-semibold tracking-wide font-sans cursor-pointer"
+                    >
+                      <span className="uppercase tracking-widest text-[10px]">Inquire Category</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform" />
+                    </a>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Quick clinical query summary suggestion */}
+          {treatmentSearchQuery && (
+            <div className="mt-12 text-center">
+              <button
+                onClick={() => setTreatmentSearchQuery("")}
+                className="text-xs uppercase tracking-wider font-bold text-brand-800 hover:text-[#7A3F1F] transition-colors underline underline-offset-4"
+              >
+                Reset treatment filter search and see all
+              </button>
+            </div>
+          )}
+
+        </div>
+      </section>
+
       {/* BEFORE AND AFTER TRANSFORMATIONS SECTION */}
-      <section id="transformations-section" className="py-24 px-6 md:px-8 bg-[#FAF6F2] relative z-10 transition-all duration-300">
+      <section id="transformations-section" className="py-24 px-6 md:px-8 bg-white border-t border-brand-100 relative z-10 transition-all duration-300">
         <div className="max-w-7xl mx-auto">
 
           {/* Section Header */}
@@ -653,8 +919,8 @@ export default function App() {
                 type="button"
                 onClick={() => setActiveTransformation(idx)}
                 className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm border ${idx === activeTransformation
-                    ? "bg-gradient-to-r from-[#7A3F1F] to-[#4F250B] text-white border-transparent"
-                    : "bg-white text-[#5A453A] border-brand-200 hover:bg-brand-50"
+                  ? "bg-gradient-to-r from-[#7A3F1F] to-[#4F250B] text-white border-transparent"
+                  : "bg-white text-[#5A453A] border-brand-200 hover:bg-brand-50"
                   }`}
               >
                 {item.title}
@@ -774,7 +1040,7 @@ export default function App() {
       </section>
 
       {/* PATENT AND REVIEWS TESTIMONIALS SECTION */}
-      <section id="reviews-section" className="py-24 px-6 md:px-8 bg-white border-t border-brand-100 relative z-10 transition-colors duration-300">
+      <section id="reviews-section" className="py-24 px-6 md:px-8 bg-[#FAF6F2] border-t border-brand-100 relative z-10 transition-colors duration-300">
         <div className="max-w-7xl mx-auto">
 
           {/* Header & Google Stats Summary block */}
@@ -796,7 +1062,7 @@ export default function App() {
             </div>
 
             {/* Google Rating Highlights Widget */}
-            <div className="bg-[#FAF6F2] border border-brand-200/60 p-6 rounded-2xl flex flex-col sm:flex-row items-center gap-6 shadow-sm min-w-[280px]">
+            <div className="bg-white border border-brand-200/60 p-6 rounded-2xl flex flex-col sm:flex-row items-center gap-6 shadow-sm min-w-[280px]">
               <div className="text-center sm:text-left">
                 <span className="text-4xl font-extrabold text-[#352013] font-serif block tracking-tight">5.0</span>
                 <span className="text-[10px] uppercase tracking-widest text-[#7A3F1F] font-bold block mt-1">Perfect Score</span>
@@ -826,7 +1092,7 @@ export default function App() {
                 key={idx}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="bg-[#FAF6F2]/30 hover:bg-[#FAF6F2]/60 border border-brand-100 rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 relative group"
+                className="bg-white hover:bg-white/95 border border-brand-100 rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 relative group"
               >
                 {/* Decorative absolute subtle quote icon or mark */}
                 <span className="absolute top-6 right-8 text-[#7A3F1F]/5 text-6xl font-serif select-none pointer-events-none group-hover:text-[#7A3F1F]/10 transition-colors">
@@ -961,6 +1227,7 @@ export default function App() {
             <h4 className="font-bold text-white uppercase tracking-wider text-[11px]">Navigate</h4>
             <ul className="space-y-2.5 text-brand-300">
               <li><button onClick={() => scrollToSection("hero-section")} className="hover:text-white transition-colors cursor-pointer">Home</button></li>
+              <li><button onClick={() => scrollToSection("treatments-section")} className="hover:text-white transition-colors cursor-pointer">Treatments</button></li>
               <li><button onClick={() => scrollToSection("transformations-section")} className="hover:text-white transition-colors cursor-pointer">Transformations</button></li>
               <li><button onClick={() => scrollToSection("reviews-section")} className="hover:text-white transition-colors cursor-pointer">Reviews</button></li>
               <li><button onClick={() => scrollToSection("footer-section")} className="hover:text-white transition-colors cursor-pointer">Inquiries</button></li>

@@ -1,6 +1,7 @@
 {
   "name": "react-example",
   "homepage": "https://tejaspanthri.github.io/Renewtheaestheticclinic",
+  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
